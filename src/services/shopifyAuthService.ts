@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_ENDPOINTS } from '../config/api';
 
 interface ShopifySession {
   shop: string;
@@ -18,7 +19,9 @@ class ShopifyAuth implements ShopifyAuthService {
 
   async isAuthenticated(): Promise<boolean> {
     try {
-      const response = await axios.get('/api/shop');
+      const response = await axios.get(API_ENDPOINTS.SHOP, {
+        withCredentials: true
+      });
       this.session = response.data;
       return true;
     } catch (error) {
@@ -28,7 +31,9 @@ class ShopifyAuth implements ShopifyAuthService {
 
   async getShopData(): Promise<any> {
     try {
-      const response = await axios.get('/api/shop');
+      const response = await axios.get(API_ENDPOINTS.SHOP, {
+        withCredentials: true
+      });
       return response.data;
     } catch (error) {
       console.error('Error fetching shop data:', error);
@@ -37,7 +42,7 @@ class ShopifyAuth implements ShopifyAuthService {
   }
 
   initiateAuth(shop: string): void {
-    window.location.href = `/auth?shop=${shop}.myshopify.com`;
+    window.location.href = `${API_ENDPOINTS.AUTH}?shop=${shop}.myshopify.com`;
   }
 
   logout(): void {

@@ -1,11 +1,26 @@
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
+const cors = require('cors');
 const { shopifyApi } = require('@shopify/shopify-api');
 const { ApiVersion } = require('@shopify/shopify-api');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'https://beautiful-bunny-e56a51.netlify.app',
+    'http://localhost:3000',
+    'http://localhost:5173' // Vite default port
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.use(express.json());
 
 const shopify = shopifyApi({
   apiKey: process.env.SHOPIFY_API_KEY,
@@ -50,7 +65,9 @@ app.get('/auth/callback', async (req, res) => {
     req.session.shop = callback.session.shop;
     req.session.accessToken = callback.session.accessToken;
 
-    res.redirect(`/?shop=${callback.session.shop}`);
+    // Redirect to frontend app
+    const frontendUrl = process.env.FRONTEND_URL || 'https://beautiful-bunny-e56a51.netlify.app';
+    res.redirect(`${frontendUrl}/?shop=${callback.session.shop}&authenticated=true`);
   } catch (error) {
     console.error('Error during auth callback:', error);
     res.status(500).send('Authentication failed');
