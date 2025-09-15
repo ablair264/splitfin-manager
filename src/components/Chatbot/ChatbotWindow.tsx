@@ -4,7 +4,7 @@ import 'react-chatbot-kit/build/main.css';
 import './Chatbot.css';
 import { X } from 'lucide-react';
 
-import config from './config';
+import config from './config.jsx';
 import MessageParser from './MessageParser';
 import ActionProvider from './ActionProvider';
 

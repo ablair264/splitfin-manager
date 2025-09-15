@@ -1,6 +1,6 @@
 // Enhanced widget templates leveraging your full schema
 import React from 'react';
-import { HandCoins, Box, Truck, TriangleAlert, ChartBar, ClockAlert, FilePlus2, Warehouse } from 'lucide-react';
+import { Coins, Box, Truck, AlertTriangle, BarChart, Clock, FilePlus2, Warehouse } from 'lucide-react';
 
 export const expandedWidgetTemplates = [
   // ============== FINANCIAL METRICS ==============
@@ -11,7 +11,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'financial_metrics_aggregated',
-    icon: <HandCoins />,
+    icon: <Coins />,
     config: {
       metric: 'gross_margin_percent',
       showTrend: true,
@@ -27,7 +27,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'financial_metrics_aggregated',
-    icon: <HandCoins />,
+    icon: <Coins />,
     config: {
       metric: 'cash_collected',
       showTrend: true,
@@ -43,7 +43,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'financial_metrics_aggregated',
-    icon: <TriangleAlert />,
+    icon: <AlertTriangle />,
     config: {
       metric: 'overdue_receivables',
       showTrend: false,
@@ -60,7 +60,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCardSquare',
     dataSource: 'financial_metrics_aggregated',
-    icon: <ClockAlert />,
+    icon: <Clock />,
     config: {
       metric: 'days_sales_outstanding',
       showTrend: true,
@@ -93,7 +93,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'inventory_metrics_aggregated',
-    icon: <TriangleAlert />,
+    icon: <AlertTriangle />,
     config: {
       metric: 'items_below_reorder',
       showTrend: false,
@@ -110,7 +110,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCardSquare',
     dataSource: 'inventory_metrics_aggregated',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       metric: 'inventory_turnover_ratio',
       showTrend: true,
@@ -144,7 +144,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'customer_analytics_aggregated',
-    icon: <ClockAlert />,
+    icon: <Clock />,
     config: {
       metric: 'lifetime_value',
       aggregation: 'average',
@@ -177,7 +177,7 @@ export const expandedWidgetTemplates = [
     type: 'chart',
     displayFormat: 'FullGraph',
     dataSource: 'customer_analytics_aggregated',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       groupBy: 'customer_segment',
       metric: 'total_spent',
@@ -194,7 +194,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'sales_performance_aggregated',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       metric: 'revenue_growth_percent',
       showTrend: true,
@@ -211,7 +211,7 @@ export const expandedWidgetTemplates = [
     type: 'chart',
     displayFormat: 'FullGraph',
     dataSource: 'sales_performance_aggregated',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       metrics: ['new_customers', 'repeat_customers'],
       chartType: 'stacked-bar',
@@ -225,7 +225,7 @@ export const expandedWidgetTemplates = [
     type: 'chart',
     displayFormat: 'FullGraph',
     dataSource: 'sales_performance_aggregated',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       metrics: ['pending_orders', 'confirmed_orders', 'shipped_orders', 'delivered_orders', 'cancelled_orders'],
       chartType: 'donut',
@@ -260,7 +260,7 @@ export const expandedWidgetTemplates = [
     type: 'chart',
     displayFormat: 'FullGraph',
     dataSource: 'brand_trends_aggregated',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       groupBy: 'brand_name',
       metric: 'total_quantity',
@@ -311,7 +311,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'backorders',
-    icon: <TriangleAlert />,
+    icon: <AlertTriangle />,
     config: {
       metric: 'backorder_value',
       aggregation: 'sum',
@@ -350,7 +350,7 @@ export const expandedWidgetTemplates = [
     type: 'metric',
     displayFormat: 'MetricCard',
     dataSource: 'enquiries',
-    icon: <ClockAlert />,
+    icon: <Clock />,
     config: {
       metric: 'conversion_rate',
       calculated: true,
@@ -367,7 +367,7 @@ export const expandedWidgetTemplates = [
     type: 'chart',
     displayFormat: 'FullGraph',
     dataSource: 'enquiries',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       groupBy: 'status',
       metric: 'estimated_value',
@@ -382,7 +382,7 @@ export const expandedWidgetTemplates = [
     type: 'chart',
     displayFormat: 'FullGraph',
     dataSource: 'enquiries',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       groupBy: 'lead_source',
       chartType: 'donut',
@@ -398,7 +398,7 @@ export const expandedWidgetTemplates = [
     type: 'activity',
     displayFormat: 'ActivityFeed',
     dataSource: 'orders',
-    icon: <ChartBar />,
+    icon: <BarChart />,
     config: {
       refreshInterval: 30,
       limit: 10,
