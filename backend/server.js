@@ -2,9 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-const { shopifyApi } = require('@shopify/shopify-api');
-const { ApiVersion } = require('@shopify/shopify-api');
+const { shopifyApi, ApiVersion } = require('@shopify/shopify-api');
+const { restResources } = require('@shopify/shopify-api/rest/admin/2024-01');
 const axios = require('axios');
+
+// Import Node.js adapter
+require('@shopify/shopify-api/adapters/node');
 
 const app = express();
 const PORT = process.env.PORT || 10000;
@@ -22,6 +25,7 @@ const shopify = shopifyApi({
   ],
   hostName: process.env.SHOPIFY_APP_URL?.replace(/https?:\/\//, '') || 'localhost',
   apiVersion: ApiVersion.January24,
+  restResources,
 });
 
 // CORS configuration
