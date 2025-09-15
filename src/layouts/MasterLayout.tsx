@@ -6,7 +6,7 @@ import {
   BarChart3, Users, ClipboardList, Warehouse as WarehouseIcon, ShoppingCart, Settings as SettingsIcon,
   Power, ChevronDown, ChevronRight, Plus, Key, Menu, X, Map,
   UserPlus, Mail, Bell, FileText, UserCheck, File, User, HelpCircle,
-  Home, Database, Shield, Package, Boxes, Images, Book,
+  Home, Database, Shield, Package, Boxes, Image, Book,
   DollarSign, Calendar, Cloud, Truck
 } from 'lucide-react';
 import { supabase } from '../services/supabaseService';
@@ -968,9 +968,9 @@ export default function MasterLayout() {
         ] : []
       },
       'Image Management': {
-        icon: <Images />,
+        icon: <Image />,
         links: (user?.role === 'Manager' || user?.permissions.catalogues) ? [
-          { to: '/image-management', label: 'Image Management', icon: <Images /> }
+          { to: '/image-management', label: 'Image Management', icon: <Image /> }
         ] : []
       },
       Messaging: {

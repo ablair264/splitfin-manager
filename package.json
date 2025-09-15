@@ -31,7 +31,9 @@
     "file-saver": "^2.0.5",
     "jsbarcode": "^3.11.6",
     "react-chatbot-kit": "^2.1.2",
-    "react-zxing": "^2.0.0"
+    "react-zxing": "^2.0.0",
+    "react-icons": "^4.12.0",
+    "react-grid-layout": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
